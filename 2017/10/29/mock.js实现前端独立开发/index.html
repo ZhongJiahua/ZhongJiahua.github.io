@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhongjiahua.github.io">
-  <title>Archives | 墨锋科技</title>
+  <title>mock.js实现前端独立开发 | 墨锋科技</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="墨锋科技 技术 墨锋 科技 开发 软件">
-<meta property="og:type" content="website">
-<meta property="og:title" content="墨锋科技">
-<meta property="og:url" content="http://zhongjiahua.github.io/archives/index.html">
+  <meta name="description" content="问题背景 项目：惠付通 页面：管理后台 问题：实施前后端分离的模式进行开发时，往往前端要测试时需要通过把数据填充到js文件里，然后修改路径等繁琐的问题，加上用一些前端技术框架如layui要用数据接口才能进行测试。  mock.js概述 前后端分离，让前端独立于后端进行开发。 不需要修改既有代码，就可以拦截Ajax请求，返回模拟的响应数据。 增加单元测试的真实性，通过随机数据，模拟各种场景。 数据类">
+<meta name="keywords" content="前端,框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mock.js实现前端独立开发">
+<meta property="og:url" content="http://zhongjiahua.github.io/2017/10/29/mock.js实现前端独立开发/index.html">
 <meta property="og:site_name" content="墨锋科技">
-<meta property="og:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta property="og:description" content="问题背景 项目：惠付通 页面：管理后台 问题：实施前后端分离的模式进行开发时，往往前端要测试时需要通过把数据填充到js文件里，然后修改路径等繁琐的问题，加上用一些前端技术框架如layui要用数据接口才能进行测试。  mock.js概述 前后端分离，让前端独立于后端进行开发。 不需要修改既有代码，就可以拦截Ajax请求，返回模拟的响应数据。 增加单元测试的真实性，通过随机数据，模拟各种场景。 数据类">
+<meta property="og:updated_time" content="2017-10-29T10:23:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="墨锋科技">
-<meta name="twitter:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta name="twitter:title" content="mock.js实现前端独立开发">
+<meta name="twitter:description" content="问题背景 项目：惠付通 页面：管理后台 问题：实施前后端分离的模式进行开发时，往往前端要测试时需要通过把数据填充到js文件里，然后修改路径等繁琐的问题，加上用一些前端技术框架如layui要用数据接口才能进行测试。  mock.js概述 前后端分离，让前端独立于后端进行开发。 不需要修改既有代码，就可以拦截Ajax请求，返回模拟的响应数据。 增加单元测试的真实性，通过随机数据，模拟各种场景。 数据类">
   
     <link rel="alternative" href="/atom.xml" title="墨锋科技" type="application/atom+xml">
   
@@ -152,36 +154,105 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mock.js实现前端独立开发" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/29/mock.js实现前端独立开发/" class="archive-article-date">
-  	<time datetime="2017-10-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/29/mock.js实现前端独立开发/">mock.js实现前端独立开发</a>
+    <h1 class="article-title" itemprop="name">
+      mock.js实现前端独立开发
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/29/mock.js实现前端独立开发/" class="archive-article-date">
+  	<time datetime="2017-10-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
+<li>项目：惠付通</li>
+<li>页面：管理后台</li>
+<li>问题：实施前后端分离的模式进行开发时，往往前端要测试时需要通过把数据填充到js文件里，然后修改路径等繁琐的问题，加上用一些前端技术框架如<code>layui</code>要用数据接口才能进行测试。</li>
+</ul>
+<h3 id="mock-js概述"><a href="#mock-js概述" class="headerlink" title="mock.js概述"></a><a href="mockjs.com">mock.js</a>概述</h3><ul>
+<li><strong>前后端分离</strong>，让前端独立于后端进行开发。</li>
+<li><strong>不需要修改既有代码</strong>，就可以拦截Ajax请求，返回模拟的响应数据。</li>
+<li><strong>增加单元测试的真实性</strong>，通过随机数据，模拟各种场景。</li>
+<li><strong>数据类型丰富</strong>，支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。</li>
+<li><strong>用法简单</strong>，符合直觉的接口。</li>
+<li><strong>方便拓展</strong>，支持扩展更多数据类型，支持自定义函数和正则。</li>
+</ul>
+<h3 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h3><ul>
+<li>数据过长，需要将数据写在js文件里，完成后逐个修改url。</li>
+<li>遇到逻辑负责的代码，对模拟数据的处理比较繁琐，而且容易出错。</li>
+<li>想要尽可能还原真实的数据，要么编写更多代码，要么手动修改模拟数据。</li>
+<li>特殊的格式，例如IP，随机数，图片，地址，需要去收集。</li>
+</ul>
+<h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><ul>
+<li>首页地址：<a href="http://mockjs.com" target="_blank" rel="external">http://mockjs.com</a></li>
+</ul>
+<ul>
+<li>示例地址：<a href="http://mockjs.com/examples.htm，自测用Safari是无法体验的，推荐用google浏览器。" target="_blank" rel="external">http://mockjs.com/examples.htm，自测用Safari是无法体验的，推荐用google浏览器。</a></li>
+</ul>
+<ul>
+<li>官方安装教程：<a href="https://github.com/nuysoft/Mock/wiki/Getting-Started，安装过程对有基础的前端会比较容易，以下介绍的是一个非前端人员安装`mock.js`并体验的过程。" target="_blank" rel="external">https://github.com/nuysoft/Mock/wiki/Getting-Started，安装过程对有基础的前端会比较容易，以下介绍的是一个非前端人员安装`mock.js`并体验的过程。</a></li>
+</ul>
+<h4 id="1-mock-js下载安装"><a href="#1-mock-js下载安装" class="headerlink" title="1.mock.js下载安装"></a>1.mock.js下载安装</h4><ul>
+<li>下载mock.js文件</li>
+<li>npm安装mock模块 ，项目路径下执行命令： <code>npm install mockjs</code>。如果安装是遇到<code>npm WARN enoent ENOENT: no such file or directory&#39;package.json&#39;</code>这种错误时，执行<code>npm init</code>初始化一个<code>package.json</code>即可。</li>
+</ul>
+<h4 id="2-使用bower包管理工具"><a href="#2-使用bower包管理工具" class="headerlink" title="2.使用bower包管理工具"></a>2.使用bower包管理工具</h4><p>Bower 是 twitter 推出的一款包管理工具，基于nodejs的模块化思想，把功能分散到各个模块中，让模块和模块之间存在联系，通过 Bower 来管理模块间的这种联系。</p>
+<p>推荐一篇比较详细的实战教程：<a href="http://blog.fens.me/nodejs-bower-intro/" target="_blank" rel="external">http://blog.fens.me/nodejs-bower-intro/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g bower  #安装bower</div><div class="line">bower install --save mockjs  #用bower安装并管理mockjs</div><div class="line">bower install jquery  #用bower安装并管理jquery</div></pre></td></tr></table></figure>
+<p>安装完成后，mockjs包会自动生成在bower_components目录下，前端页面引入下面语句就可以使用了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"./bower_components/mockjs/dist/mock.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"./bower_components/jquery/dist/jquery.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="3-页面实现"><a href="#3-页面实现" class="headerlink" title="3.页面实现"></a>3.页面实现</h4><p>index.html前端页面代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./bower_components/mockjs/dist/mock.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./bower_components/jquery/dist/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--mock-2.js是mockJs的demo文件--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"mock-2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>mock-2.js实现代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Mock.mock(<span class="regexp">/\.json/</span>, &#123;    <span class="comment">//匹配.json文件，可执行匹配成功的参数</span></div><div class="line">  <span class="string">'list|1-10'</span>: [&#123;      <span class="comment">//数据模板，各种模版及教程官网上都会有详细说明</span></div><div class="line">         <span class="string">'id|+1'</span>: <span class="number">1</span>,</div><div class="line">         <span class="string">'email'</span>: <span class="string">'@EMAIL'</span>,</div><div class="line">         <span class="string">'regexp3'</span>: <span class="regexp">/\d&#123;5,10&#125;/</span></div><div class="line">     &#125;]</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendData</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">         url: url,</div><div class="line">         dataType: <span class="string">'json'</span></div><div class="line">     &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data, status, jqXHR</span>) </span>&#123;</div><div class="line">         <span class="comment">//获得mock数据模板中的数据，打印到body上</span></div><div class="line">         $(<span class="string">'&lt;pre&gt;'</span>).text(<span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>)).appendTo(<span class="string">'body'</span>);</div><div class="line">     &#125;)</div><div class="line">&#125;</div><div class="line">sendData(<span class="string">"hello.json"</span>);</div></pre></td></tr></table></figure></p>
+<p>成功运行后，每次刷新都会有不同的运行结果输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;list&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;id&quot;: 1,</div><div class="line">            &quot;email&quot;: &quot;t.thdta@ewqby.cz&quot;,</div><div class="line">            &quot;regexp3&quot;: &quot;721556&quot;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;id&quot;: 2,</div><div class="line">            &quot;email&quot;: &quot;j.jvlelmmyv@euky.iq&quot;,</div><div class="line">            &quot;regexp3&quot;: &quot;12226455&quot;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;id&quot;: 3,</div><div class="line">            &quot;email&quot;: &quot;l.tmxkydcxq@ebz.cc&quot;,</div><div class="line">            &quot;regexp3&quot;: &quot;87208&quot;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &quot;id&quot;: 4,</div><div class="line">            &quot;email&quot;: &quot;b.xfqddb@sagkgnp.ar&quot;,</div><div class="line">            &quot;regexp3&quot;: &quot;523442325&quot;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>随意打赏,爱给不给~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WechatMoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,7 +268,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,70 +281,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://zhongjiahua.github.io/2017/10/29/mock.js实现前端独立开发/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/" class="archive-article-date">
-  	<time datetime="2017-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端单页面填写多信息方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/">移动端单页面填写多信息方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">手机页面</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术总结//" class="article-tag-list-link color5">技术总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -296,8 +401,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
