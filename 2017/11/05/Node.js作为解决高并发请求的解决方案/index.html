@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhongjiahua.github.io">
-  <title>Category: 技术探索 | 墨锋科技</title>
+  <title>Node.js作为高并发请求的解决方案 | 墨锋科技</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="墨锋科技 技术 墨锋 科技 开发 软件">
-<meta property="og:type" content="website">
-<meta property="og:title" content="墨锋科技">
-<meta property="og:url" content="http://zhongjiahua.github.io/categories/技术探索/index.html">
+  <meta name="description" content="概述 Node.js 是一个基于 Chrome V8引擎的 JavaScript 运行环境。  Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。  Node.js 的包管理器 npm，是全球最大的开源库生态系统。  以上是官方对node.js的简述说明，接下来本文会对上面三点展开说明，并且对node.js的优劣势和应用场景进行探究。附上学习node.js常用网站：官网">
+<meta name="keywords" content="前端,框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js作为高并发请求的解决方案">
+<meta property="og:url" content="http://zhongjiahua.github.io/2017/11/05/Node.js作为解决高并发请求的解决方案/index.html">
 <meta property="og:site_name" content="墨锋科技">
-<meta property="og:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta property="og:description" content="概述 Node.js 是一个基于 Chrome V8引擎的 JavaScript 运行环境。  Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。  Node.js 的包管理器 npm，是全球最大的开源库生态系统。  以上是官方对node.js的简述说明，接下来本文会对上面三点展开说明，并且对node.js的优劣势和应用场景进行探究。附上学习node.js常用网站：官网">
+<meta property="og:updated_time" content="2017-11-05T09:10:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="墨锋科技">
-<meta name="twitter:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta name="twitter:title" content="Node.js作为高并发请求的解决方案">
+<meta name="twitter:description" content="概述 Node.js 是一个基于 Chrome V8引擎的 JavaScript 运行环境。  Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。  Node.js 的包管理器 npm，是全球最大的开源库生态系统。  以上是官方对node.js的简述说明，接下来本文会对上面三点展开说明，并且对node.js的优劣势和应用场景进行探究。附上学习node.js常用网站：官网">
   
     <link rel="alternative" href="/atom.xml" title="墨锋科技" type="application/atom+xml">
   
@@ -152,36 +154,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Node.js作为解决高并发请求的解决方案" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Node.js作为高并发请求的解决方案
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/05/Node.js作为解决高并发请求的解决方案/" class="archive-article-date">
+
+        
+        <a href="/2017/11/05/Node.js作为解决高并发请求的解决方案/" class="archive-article-date">
   	<time datetime="2017-11-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/05/Node.js作为解决高并发请求的解决方案/">Node.js作为高并发请求的解决方案</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><ul>
+<li><code>Node.js</code> 是一个基于 <strong>Chrome V8引擎</strong>的 <code>JavaScript</code> 运行环境。 </li>
+<li><code>Node.js</code> 使用了一个<strong>事件驱动</strong>、<strong>非阻塞式 I/O</strong> 的模型，使其轻量又高效。 </li>
+<li><code>Node.js</code> 的包管理器 <code>npm</code>，是<strong>全球最大的开源库生态系统</strong>。</li>
+</ul>
+<p>以上是官方对<code>node.js</code>的简述说明，接下来本文会对上面三点展开说明，并且对<code>node.js</code>的优劣势和应用场景进行探究。附上学习<code>node.js</code>常用网站：<br>官网：<a href="nodejs.org">nodejs.org</a><br>模块社区：<a href="www.npmjs.com">www.npmjs.com</a><br>技术解答社区：<a href="www.npmjs.com">www.npmjs.com</a></p>
+<h4 id="认识Node"><a href="#认识Node" class="headerlink" title="认识Node"></a>认识Node</h4><p><strong>Node本身运行V8 JavaScript</strong>。<strong>V8 JavaScript引擎</strong>是Google用于其Chrome浏览器的底层<code>JavaScript</code>引擎。Google使用<code>V8</code>创建了一个用<code>C++</code>编写的<strong>超快解释器</strong>，该解释器拥有另一个独特特征：您可以下载该引擎并将其嵌入任何应用程序。V8 JavaScript引擎并不仅限于在一个浏览器中运行。因此，<code>Node.js</code>实际上会使用Google编写的V8 JavaScript引擎，并将其重建为可在服务器上使用。</p>
+<h4 id="理解异步非阻塞I-O模型"><a href="#理解异步非阻塞I-O模型" class="headerlink" title="理解异步非阻塞I/O模型"></a>理解异步非阻塞I/O模型</h4><blockquote>
+<p>Everything runs in parallel except your code!<br>（在Node中）除了代码，一切都是并行的！</p>
+</blockquote>
+<h5 id="阻塞I-O"><a href="#阻塞I-O" class="headerlink" title="阻塞I/O"></a>阻塞I/O</h5><p>程序执行过程中要进行很多I/O操作，读写文件、输入输出、请求响应等等，I/O操作是最费时的。业务场景经常需要我们去读取文件，在读取文件的过程中整个线程都会暂停下来，等待文件读完后继续执行。换言之，I/O操作阻塞了代码的执行，极大地降低了程序的效率。类似这种因为前面代码未执行完毕而影响到后面代码进程的情形称为“<strong>阻塞</strong>”。</p>
+<p>下面是是一个C#读文件的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">private string ReadTxtToStr(string filename)</div><div class="line">&#123;   </div><div class="line">    //打开文件,打开期间其他代码停止执行，直到完成打开后继续执行代码。   </div><div class="line">    FileStream fs = File.Open(filename, FileMode.Open);    </div><div class="line">    Console.WriteLine(&quot;我被打开文件阻塞了。&quot;);    </div><div class="line">    StreamReader sr = new StreamReader(fs);    </div><div class="line">    //读取文件，读取期间其他代码停止执行，直到完成读取后继续执行代码。    </div><div class="line">    string str=sr.ReadToEnd();    </div><div class="line">    Console.WriteLine(&quot;我被读取文件阻塞了。&quot;);    </div><div class="line">    return str;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在上述代码中，两个<code>Console.WriteLine()</code>虽然会被执行，但是会被阻塞一段时间。理论上，如果读取这个文件需要10秒，我们就浪费了10秒在I/O等待中（实际程序运行中有很大一部分时间是浪费在I/O等待上的）。</p>
+<h5 id="非阻塞I-O"><a href="#非阻塞I-O" class="headerlink" title="非阻塞I/O"></a>非阻塞I/O</h5><p>非阻塞I/O是程序执行过程中，I/O操作不会阻塞程序的执行，也就是在I/O操作的同时，继续执行其他代码（这得益于Node的事件循环机制）。在I/O设备效率还远远低于CPU效率的时代，这种I/O模型（非阻塞I/O）为程序带来的性能上的提高是非常可观的。</p>
+<p><code>Node.js</code>实现非阻塞I/O的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line">fs.readFile(<span class="string">"./testfile"</span>, <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, file</span>) </span>&#123;  </div><div class="line">     <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;  </div><div class="line">     <span class="built_in">console</span>.log(<span class="string">"我读完文件了！"</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"我不会被阻塞！"</span>);</div></pre></td></tr></table></figure></p>
+<p>代码进行I/O操作时，给<code>readFile</code>绑定一个回调函数<code>function(error,file){}</code>,并在读取<code>testfile</code>完成后执行回调函数。期间，后面的代码继续执行，不受I/O阻塞。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>采用事件驱动、异步编程，为网络服务而设计。其实<code>Javascript</code>的匿名函数和闭包特性非常适合事件驱动、异步编程。而且<code>JavaScript</code>也简单易学，很多前端设计人员可以很快上手做后端设计。</li>
+<li><code>Node.js</code>非阻塞模式的IO处理给<code>Node.js</code>带来在相对低系统资源耗用下的高性能与出众的负载能力，非常适合用作依赖其它IO资源的中间层服务。</li>
+<li><code>Node.js</code>轻量高效，可以认为是数据密集型分布式部署环境下的实时应用系统的完美解决方案。<code>Node</code>非常适合如下情况：在响应客户端之前，您预计可能有很高的流量，但所需的服务器端逻辑和处理不一定很多。</li>
+</ul>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>CPU使用率较重、IO使用率较轻的应用——如视频编码、人工智能等，<code>Node.js</code>的优势无法发挥。</li>
+<li>简单Web应用——此类应用的特点是，流量低、物理架构简单，<code>Node.js</code>无法提供像<code>Ruby</code>的<code>Rails</code>或者<code>Python</code>的<code>Django</code>这样强大的框架。</li>
+</ul>
+<h4 id="优秀应用案例"><a href="#优秀应用案例" class="headerlink" title="优秀应用案例"></a>优秀应用案例</h4><h5 id="1、RESTful-API"><a href="#1、RESTful-API" class="headerlink" title="1、RESTful API"></a>1、RESTful API</h5><p>提供<code>RESTful API</code>的Web服务接收几个参数，解析它们，组合一个响应，并返回一个响应（通常是较少的文本）给用户。这是适合Node的理想情况，因为您可以构建它来处理数万条连接。它仍然不需要大量逻辑；它本质上只是从某个数据库中查找一些值并将它们组成一个响应。由于响应是少量文本，入站请求也是少量的文本，因此流量不高，一台机器甚至也可以处理最繁忙的公司的API需求。</p>
+<h5 id="2、Twitter队列"><a href="#2、Twitter队列" class="headerlink" title="2、Twitter队列"></a>2、Twitter队列</h5><p>想像一下像Twitter这样的公司，它必须接收tweets并将其写入数据库。实际上，每秒几乎有数千条tweet达到，数据库不可能及时处理高峰时段所需的写入数量。<code>Node</code>成为这个问题的解决方案的重要一环。如您所见，<code>Node</code>能处理数万条入站tweet。它能快速而又轻松地将它们写入一个内存排队机制（例如<code>memcached</code>），另一个单独进程可以从那里将它们写入数据库。<code>Node</code>在这里的角色是迅速收集tweet，并将这个信息传递给另一个负责写入的进程。想象一下另一种设计（常规<code>PHP</code>服务器会自己尝试处理对数据库本身的写入）：每个tweet都会在写入数据库时导致一个短暂的延迟，因为数据库调用正在阻塞通道。由于数据库延迟，一台这样设计的机器每秒可能只能处理2000条入站tweet。每秒处理100万条tweet则需要500个服务器。相反，<code>Node</code>能处理每个连接而不会阻塞通道，从而能够捕获尽可能多的tweets。一个能处理50000条tweet的<code>Node</code>机器仅需20台服务器即可。</p>
+<h5 id="3、电子游戏统计数据"><a href="#3、电子游戏统计数据" class="headerlink" title="3、电子游戏统计数据"></a>3、电子游戏统计数据</h5><p>如果您在线玩过《使命召唤》这款游戏，当您查看游戏统计数据时，就会立即意识到一个问题：要生成那种级别的统计数据，必须跟踪海量信息。这样，如果有数百万玩家同时在线玩游戏，而且他们处于游戏中的不同位置，那么很快就会生成海量信息。Node是这种场景的一种很好的解决方案，因为它能采集游戏生成的数据，对数据进行最少的合并，然后对数据进行排队，以便将它们写入数据库。使用整个服务器来跟踪玩家在游戏中发射了多少子弹看起来很愚蠢，如果您使用<code>Apache</code>这样的服务器，可能会有一些有用的限制；但相反，如果您专门使用一个服务器来跟踪一个游戏的所有统计数据，就像使用运行<code>Node</code>的服务器所做的那样，那看起来似乎是一种明智之举。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>随意打赏,爱给不给~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WechatMoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,7 +256,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,70 +269,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://zhongjiahua.github.io/2017/11/05/Node.js作为解决高并发请求的解决方案/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/29/mock.js实现前端独立开发/" class="archive-article-date">
-  	<time datetime="2017-10-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/29/mock.js实现前端独立开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mock.js实现前端独立开发</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/29/mock.js实现前端独立开发/">mock.js实现前端独立开发</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术探索//" class="article-tag-list-link color5">技术探索</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -296,10 +389,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
