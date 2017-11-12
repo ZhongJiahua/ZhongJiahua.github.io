@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhongjiahua.github.io">
-  <title>Archives: 2017 | 墨锋科技</title>
+  <title>浏览器与服务器全双工(full-duplex)通信-WebSocket | 墨锋科技</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="墨锋科技 技术 墨锋 科技 开发 软件">
-<meta property="og:type" content="website">
-<meta property="og:title" content="墨锋科技">
-<meta property="og:url" content="http://zhongjiahua.github.io/archives/2017/index.html">
+  <meta name="description" content="WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。  概述WebSocket协议支持（在受控环境中运行不受信任的代码的）客户端与（选择加入该代码的通信的）远程主机之间进行全双工通信。用于此的安全模型是Web浏览器常用的基于原始的安全模式。 协议包括一个开放的握手以及随后的TCP层上的消息帧。 该技术">
+<meta name="keywords" content="协议,数据传输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器与服务器全双工(full-duplex)通信-WebSocket">
+<meta property="og:url" content="http://zhongjiahua.github.io/2017/11/12/浏览器与服务器全双工(full-duplex)通信-WebSocket/index.html">
 <meta property="og:site_name" content="墨锋科技">
-<meta property="og:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta property="og:description" content="WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。  概述WebSocket协议支持（在受控环境中运行不受信任的代码的）客户端与（选择加入该代码的通信的）远程主机之间进行全双工通信。用于此的安全模型是Web浏览器常用的基于原始的安全模式。 协议包括一个开放的握手以及随后的TCP层上的消息帧。 该技术">
+<meta property="og:updated_time" content="2017-11-12T12:16:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="墨锋科技">
-<meta name="twitter:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta name="twitter:title" content="浏览器与服务器全双工(full-duplex)通信-WebSocket">
+<meta name="twitter:description" content="WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。  概述WebSocket协议支持（在受控环境中运行不受信任的代码的）客户端与（选择加入该代码的通信的）远程主机之间进行全双工通信。用于此的安全模型是Web浏览器常用的基于原始的安全模式。 协议包括一个开放的握手以及随后的TCP层上的消息帧。 该技术">
   
     <link rel="alternative" href="/atom.xml" title="墨锋科技" type="application/atom+xml">
   
@@ -152,36 +154,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浏览器与服务器全双工(full-duplex)通信-WebSocket" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/浏览器与服务器全双工(full-duplex)通信-WebSocket/" class="archive-article-date">
-  	<time datetime="2017-11-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/浏览器与服务器全双工(full-duplex)通信-WebSocket/">浏览器与服务器全双工(full-duplex)通信-WebSocket</a>
+    <h1 class="article-title" itemprop="name">
+      浏览器与服务器全双工(full-duplex)通信-WebSocket
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/11/12/浏览器与服务器全双工(full-duplex)通信-WebSocket/" class="archive-article-date">
+  	<time datetime="2017-11-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。</p>
+</blockquote>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>WebSocket协议支持（在受控环境中运行不受信任的代码的）<strong>客户端</strong>与（选择加入该代码的通信的）<strong>远程主机</strong>之间进行<strong>全双工通信</strong>。用于此的安全模型是Web浏览器常用的基于原始的安全模式。 <strong>协议包括一个开放的握手以及随后的TCP层上的消息帧。</strong> 该技术的目标是为基于浏览器的、需要和服务器进行双向通信的（<strong>服务器</strong>不能依赖于打开多个<code>HTTP</code>连接（例如，使用<code>XMLHttpRequest</code>或<code>iframe</code>和长轮询））应用程序提供一种通信机制。</p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>在实现websocket连线过程中，需要通过浏览器发出websocket连线请求，然后服务器发出回应，这个过程通常称为“握手” 。在 WebSocket API，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。在此WebSocket 协议中，为我们实现即时服务带来了两大好处：</p>
+<ol>
+<li><strong>Header</strong>，互相沟通的Header是很小的-大概只有 2 Bytes</li>
+<li><strong>Server Push</strong>，服务器的推送，服务器不再被动的接收到浏览器的请求之后才返回数据，而是在有新数据时就主动推送给浏览器。</li>
+</ol>
+<h4 id="握手协议（例子）"><a href="#握手协议（例子）" class="headerlink" title="握手协议（例子）"></a>握手协议（例子）</h4><p><strong>浏览器请求</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GET /webfin/websocket/ HTTP/1.1</div><div class="line">Host: localhost</div><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Key: xqBt3ImNzJbYqRINxEFlkg==</div><div class="line">Origin: http://服务器地址</div><div class="line">Sec-WebSocket-Version: 13</div></pre></td></tr></table></figure></p>
+<p><strong>服务器回应</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 101 Switching Protocols</div><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Accept: K7DJLdLooIwIG/MOpvWFB3y3FE8=</div></pre></td></tr></table></figure></p>
+<p><strong>协议解释</strong></p>
+<p>WebSocket借用http请求进行握手，相比正常的http请求，多了一些内容。其中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div></pre></td></tr></table></figure></p>
+<ul>
+<li>表示希望将http协议升级到Websocket协议。</li>
+<li><code>Sec-WebSocket-Key</code>是浏览器随机生成的<code>base64 encode</code>的值，用来询问服务器是否是支持WebSocket。</li>
+</ul>
+<p>服务器返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div></pre></td></tr></table></figure></p>
+<ul>
+<li>告诉浏览器即将升级的是Websocket协议</li>
+<li><code>Sec-WebSocket-Accept</code>是将请求包“<code>Sec-WebSocket-Key</code>”的值，与”258EAFA5-E914-47DA-95CA-C5AB0DC85B11″这个字符串进行拼接，然后对拼接后的字符串进行<code>sha-1</code>运算，再进行<code>base64</code>编码得到的。用来说明自己是WebSocket助理服务器。</li>
+<li><code>Sec-WebSocket-Version</code>是WebSocket协议版本号。</li>
+</ul>
+<h4 id="HTML5-API"><a href="#HTML5-API" class="headerlink" title="HTML5 API"></a>HTML5 API</h4><p>在HTML5中内置有一些API，用于响应应用程序发起的请求。基本API语句如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建一个Socket实例</span></div><div class="line"><span class="keyword">var</span> socket = <span class="keyword">new</span> WebSocket(<span class="string">'ws://localhost:8080'</span>); </div><div class="line"></div><div class="line"><span class="comment">// 打开Socket </span></div><div class="line">socket.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123; </div><div class="line"></div><div class="line">  <span class="comment">// 发送一个初始化消息</span></div><div class="line">  socket.send(<span class="string">'I am the client and I\'m listening!'</span>); </div><div class="line"></div><div class="line">  <span class="comment">// 监听消息</span></div><div class="line">  socket.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123; </div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Client received a message'</span>,event); </div><div class="line">  &#125;; </div><div class="line"></div><div class="line">  <span class="comment">// 监听Socket的关闭</span></div><div class="line">  socket.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123; </div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Client notified socket has closed'</span>,event); </div><div class="line">  &#125;; </div><div class="line"></div><div class="line">  <span class="comment">// 关闭Socket.... </span></div><div class="line">  <span class="comment">//socket.close() </span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h4 id="实现简易聊天室"><a href="#实现简易聊天室" class="headerlink" title="实现简易聊天室"></a>实现简易聊天室</h4><blockquote>
+<p>技术：<strong>node.js</strong> + <strong>socket.io</strong></p>
+</blockquote>
+<p><strong>Socket.io</strong>是一个WebSocket库，包括了<strong>客户端的js</strong>和<strong>服务器端的nodejs</strong>，它的目标是<strong>构建可以在不同浏览器和移动设备上使用的实时应用</strong>。它会自动根据浏览器从<code>WebSocket</code>、<code>AJAX</code>长轮询、<code>Iframe</code>流等等各种方式中选择最佳的方式来实现网络实时应用，非常方便和人性化，而且支持的浏览器最低达IE5.5。</p>
+<p><strong>socket.io特点</strong>：</p>
+<ul>
+<li>实时分析：将数据推送到客户端，这些客户端会被表示为实时计数器，图表或日志客户。</li>
+<li>实时通信和聊天：只需几行代码便可写成一个<code>Socket.IO</code>的<code>”Hello,World”</code>聊天应用。</li>
+<li>二进制流传输：从1.0版本开始，<code>Socket.IO</code>支持任何形式的二进制文件传输，例如：图片，视频，音频等。</li>
+<li>文档合并：允许多个用户同时编辑一个文档，并且能够看到每个用户做出的修改。</li>
+</ul>
+<p>socket.io入门详细教程：<a href="https://www.w3cschool.cn/socket/socket-ulbj2eii.html" target="_blank" rel="external">https://www.w3cschool.cn/socket/socket-ulbj2eii.html</a></p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>确保电脑有安装<code>node.js</code>环境，然后在项目文件夹根目录下安装<code>socket.io</code>:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> npm install --save socket.io</div></pre></td></tr></table></figure></p>
+<p>服务端代码 <strong>wsServer.js</strong> ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引入socket.io模块</span></div><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'http'</span>).createServer()</div><div class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(app)</div><div class="line"><span class="comment">// 端口号</span></div><div class="line"><span class="keyword">var</span> PORT = <span class="number">3000</span></div><div class="line"><span class="comment">// 定义一个连接计数器</span></div><div class="line"><span class="keyword">var</span> clientCount = <span class="number">0</span></div><div class="line"></div><div class="line">app.listen(PORT) </div><div class="line"><span class="comment">// Scream server example: "hi" -&gt; "HI!!!"</span></div><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</div><div class="line">	<span class="comment">// io进行通信</span></div><div class="line">	clientCount++</div><div class="line">	socket.nickname = <span class="string">'user'</span> + clientCount</div><div class="line">	<span class="comment">// 用户进入聊天室</span></div><div class="line">	io.emit(<span class="string">'enter'</span>, socket.nickname + <span class="string">'comes in'</span>)</div><div class="line"></div><div class="line">	socket.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">		<span class="comment">// 用户对话</span></div><div class="line">		io.emit(<span class="string">'message'</span>, socket.nickname + <span class="string">'says:'</span> + str)</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	socket.on(<span class="string">'disconnect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="comment">// 用户离开</span></div><div class="line">		io.emit(<span class="string">'leave'</span>, socket.nickname + <span class="string">'left'</span>)</div><div class="line">	&#125;)</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 打印端口号</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Server listenning on port'</span> + PORT)</div></pre></td></tr></table></figure></p>
+<p>客户端代码 <strong>index.html</strong> ：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Websocket<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"socket.io.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Chat Room<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"sendTxt"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"sendBtn"</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">		<span class="comment">// 创建一个websocket对象</span></span></div><div class="line"><span class="javascript">		<span class="keyword">var</span> socket = io(<span class="string">"ws://127.0.0.1:3000/"</span>);</span></div><div class="line"><span class="javascript">		<span class="comment">// 展示消息</span></span></div><div class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params">str, type</span>) </span>&#123;</span></div><div class="line"><span class="javascript">			<span class="comment">// 生成一个div</span></span></div><div class="line"><span class="javascript">			<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span></div><div class="line"><span class="javascript">			<span class="comment">// 定义div类型</span></span></div><div class="line"><span class="undefined">			div.innerHTML = str;</span></div><div class="line"><span class="javascript">			<span class="comment">// 设置div样式</span></span></div><div class="line"><span class="javascript">			<span class="keyword">if</span>(type == <span class="string">"enter"</span>) &#123;</span></div><div class="line"><span class="javascript">				<span class="comment">// 用户进入的样式设为“蓝色”</span></span></div><div class="line"><span class="javascript">				div.style.color = <span class="string">"blue"</span>;</span></div><div class="line"><span class="javascript">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">"leave"</span>) &#123;</span></div><div class="line"><span class="javascript">				<span class="comment">// 用户离开的样式设为“红色”</span></span></div><div class="line"><span class="javascript">				div.style.color = <span class="string">"red"</span>;</span></div><div class="line"><span class="undefined">			&#125;</span></div><div class="line"><span class="javascript">			<span class="comment">// 把div加到body里</span></span></div><div class="line"><span class="javascript">			<span class="built_in">document</span>.body.appendChild(div);</span></div><div class="line"><span class="undefined">		&#125;</span></div><div class="line"><span class="javascript">		<span class="comment">// 连接函数</span></span></div><div class="line"><span class="javascript">		<span class="comment">// 建立连接</span></span></div><div class="line"><span class="javascript">		<span class="built_in">document</span>.getElementById(<span class="string">"sendBtn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">		<span class="keyword">var</span> txt = <span class="built_in">document</span>.getElementById(<span class="string">"sendTxt"</span>).value;</span></div><div class="line"><span class="javascript">		<span class="comment">// 判断是否为空，只发送有信息的内容</span></span></div><div class="line"><span class="javascript">		<span class="keyword">if</span>(txt) &#123;</span></div><div class="line"><span class="javascript">			<span class="comment">// 发送到送到服务端</span></span></div><div class="line"><span class="javascript">			socket.emit(<span class="string">'message'</span>, txt);</span></div><div class="line"><span class="undefined">			&#125;</span></div><div class="line"><span class="undefined">		&#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">		socket.on(<span class="string">'enter'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;		</span></div><div class="line"><span class="javascript">			<span class="comment">// 监听...</span></span></div><div class="line"><span class="javascript">			showMessage(data, <span class="string">'enter'</span>);</span></div><div class="line"><span class="undefined">		&#125;)</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">		socket.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span></div><div class="line"><span class="javascript">			<span class="comment">// 监听...</span></span></div><div class="line"><span class="javascript">			showMessage(data, <span class="string">'message'</span>);</span></div><div class="line"><span class="undefined">		&#125;)</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">		socket.on(<span class="string">'leave'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;		</span></div><div class="line"><span class="javascript">			<span class="comment">// 监听...</span></span></div><div class="line"><span class="javascript">			showMessage(data, <span class="string">'leave'</span>);</span></div><div class="line"><span class="undefined">		&#125;)</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>随意打赏,爱给不给~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WechatMoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,7 +267,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,176 +280,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://zhongjiahua.github.io/2017/11/12/浏览器与服务器全双工(full-duplex)通信-WebSocket/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/05/Node.js作为解决高并发请求的解决方案/" class="archive-article-date">
-  	<time datetime="2017-11-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/05/Node.js作为解决高并发请求的解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js作为高并发请求的解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/05/Node.js作为解决高并发请求的解决方案/">Node.js作为高并发请求的解决方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术探索//" class="article-tag-list-link color5">技术探索</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/29/mock.js实现前端独立开发/" class="archive-article-date">
-  	<time datetime="2017-10-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/29/mock.js实现前端独立开发/">mock.js实现前端独立开发</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术探索//" class="article-tag-list-link color5">技术探索</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/" class="archive-article-date">
-  	<time datetime="2017-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/">移动端单页面填写多信息方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">手机页面</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术总结//" class="article-tag-list-link color5">技术总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -402,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
