@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://zhongjiahua.github.io/2017/11/19/常见网络安全漏洞/index.html">
 <meta property="og:site_name" content="墨锋科技">
 <meta property="og:description" content="概述在网络设备和网络应用市场蓬勃发展的带动下，网络安全市场迎来了高速发展期，一方面随着网络的延伸，网络规模迅速扩大，安全问题变得日益复杂，建设可管、可控、可信的网络也是进一步推进网络应用发展的前提；另一方面随着网络所承载的业务日益复杂，保证应用层安全是当前企业稳步发展的首要前提。企业如果没有注重网络安全的前提下，往往会出现信息泄露、数据库隐患（拖库、删库）等问题，极大影响企业稳步健康发展。 常见的">
-<meta property="og:updated_time" content="2017-11-19T09:21:24.000Z">
+<meta property="og:updated_time" content="2017-11-19T09:24:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见网络安全漏洞">
 <meta name="twitter:description" content="概述在网络设备和网络应用市场蓬勃发展的带动下，网络安全市场迎来了高速发展期，一方面随着网络的延伸，网络规模迅速扩大，安全问题变得日益复杂，建设可管、可控、可信的网络也是进一步推进网络应用发展的前提；另一方面随着网络所承载的业务日益复杂，保证应用层安全是当前企业稳步发展的首要前提。企业如果没有注重网络安全的前提下，往往会出现信息泄露、数据库隐患（拖库、删库）等问题，极大影响企业稳步健康发展。 常见的">
@@ -202,7 +202,7 @@
 <h5 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h5><p>用户身份认证和会话管理是一个应用程序中最关键的过程，有缺陷的设计会严重破坏这个过程。在开发Web应用程序时，开发人员往往只关注Web应用程序所需的功能。由于这个原因，开发人员通常会建立自定义的认证和会话管理方案。但要正确实现这些方案却很难，结果这些自定义的方案往往在如下方面存在漏洞：退出、密码管理、超时、记住我、秘密问题、帐户更新等等。因为每一个实现都不同，要找出这些漏洞有时会很困难。</p>
 <h5 id="攻击案例"><a href="#攻击案例" class="headerlink" title="攻击案例"></a>攻击案例</h5><ol>
 <li>应用程序超时设置不当。用户使用公共计算机访问网站。离开时，该用户没有点击退出，而是直接关闭浏览器。攻击者在一个小时后能使用相同浏览器通过身份认证。</li>
-<li>机票预订应用程序支持URL重写，把会话ID放在URL里：<a href="http://example.com/sale/saleitems;jsessionid=2P0OC2JDPXM0OQSNDLPSKHCJUN2JV?dest=Hawaii，该网站一个经过认证的用户希望让他朋友知道这个机票打折信息。他将上面链接通过邮件发给他朋友们，并不知道自己已经泄漏了自己的会话ID。当他的朋友们使用上面的链接时，他们将会使用他的会话和信用卡。" target="_blank" rel="external">http://example.com/sale/saleitems;jsessionid=2P0OC2JDPXM0OQSNDLPSKHCJUN2JV?dest=Hawaii，该网站一个经过认证的用户希望让他朋友知道这个机票打折信息。他将上面链接通过邮件发给他朋友们，并不知道自己已经泄漏了自己的会话ID。当他的朋友们使用上面的链接时，他们将会使用他的会话和信用卡。</a></li>
+<li>机票预订应用程序支持URL重写，把会话ID放在URL里：example.com/sale/saleitems;jsessionid=2P0OC2JDPXM0OQSNDLPSKHCJUN2JV?dest=Hawaii，该网站一个经过认证的用户希望让他朋友知道这个机票打折信息。他将上面链接通过邮件发给他朋友们，并不知道自己已经泄漏了自己的会话ID。当他的朋友们使用上面的链接时，他们将会使用他的会话和信用卡。</li>
 <li>内部或外部攻击者进入系统的密码数据库，存储在数据库中的用户密码没有被加密, 所有用户的密码都被攻击者获得。</li>
 </ol>
 <h5 id="防护-1"><a href="#防护-1" class="headerlink" title="防护"></a>防护</h5><p><strong>1.区分公共区域和受限区域</strong></p>
@@ -498,10 +498,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
@@ -511,6 +507,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">手机页面</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
