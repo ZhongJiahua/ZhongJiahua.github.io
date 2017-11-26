@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhongjiahua.github.io">
-  <title>常见网络安全漏洞 | 墨锋科技</title>
+  <title>常见网络安全漏洞（1） | 墨锋科技</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述在网络设备和网络应用市场蓬勃发展的带动下，网络安全市场迎来了高速发展期，一方面随着网络的延伸，网络规模迅速扩大，安全问题变得日益复杂，建设可管、可控、可信的网络也是进一步推进网络应用发展的前提；另一方面随着网络所承载的业务日益复杂，保证应用层安全是当前企业稳步发展的首要前提。企业如果没有注重网络安全的前提下，往往会出现信息泄露、数据库隐患（拖库、删库）等问题，极大影响企业稳步健康发展。 常见的">
 <meta name="keywords" content="安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见网络安全漏洞">
+<meta property="og:title" content="常见网络安全漏洞（1）">
 <meta property="og:url" content="http://zhongjiahua.github.io/2017/11/19/常见网络安全漏洞/index.html">
 <meta property="og:site_name" content="墨锋科技">
 <meta property="og:description" content="概述在网络设备和网络应用市场蓬勃发展的带动下，网络安全市场迎来了高速发展期，一方面随着网络的延伸，网络规模迅速扩大，安全问题变得日益复杂，建设可管、可控、可信的网络也是进一步推进网络应用发展的前提；另一方面随着网络所承载的业务日益复杂，保证应用层安全是当前企业稳步发展的首要前提。企业如果没有注重网络安全的前提下，往往会出现信息泄露、数据库隐患（拖库、删库）等问题，极大影响企业稳步健康发展。 常见的">
-<meta property="og:updated_time" content="2017-11-19T09:24:15.000Z">
+<meta property="og:updated_time" content="2017-11-26T09:22:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见网络安全漏洞">
+<meta name="twitter:title" content="常见网络安全漏洞（1）">
 <meta name="twitter:description" content="概述在网络设备和网络应用市场蓬勃发展的带动下，网络安全市场迎来了高速发展期，一方面随着网络的延伸，网络规模迅速扩大，安全问题变得日益复杂，建设可管、可控、可信的网络也是进一步推进网络应用发展的前提；另一方面随着网络所承载的业务日益复杂，保证应用层安全是当前企业稳步发展的首要前提。企业如果没有注重网络安全的前提下，往往会出现信息泄露、数据库隐患（拖库、删库）等问题，极大影响企业稳步健康发展。 常见的">
   
     <link rel="alternative" href="/atom.xml" title="墨锋科技" type="application/atom+xml">
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常见网络安全漏洞
+      常见网络安全漏洞（1）
     </h1>
   
 
@@ -180,14 +180,13 @@
 <p>每年OWASP官网都会公布当前网络排名前十的网络漏洞：<a href="https://www.owasp.org/" target="_blank" rel="external">https://www.owasp.org/</a></p>
 </blockquote>
 <h4 id="1-SQL注入"><a href="#1-SQL注入" class="headerlink" title="1. SQL注入"></a>1. SQL注入</h4><blockquote>
-<p>Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent<br>to an interpreter as part of a command or query. The attacker’s hostile data can trick the<br>interpreter into executing unintended commands or accessing data without proper authorization.</p>
+<p>Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.</p>
 </blockquote>
 <p>通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。具体来说，它是利用现有应用程序，将（恶意的）SQL命令注入到后台数据库引擎执行的能力，它可以通过在Web表单中输入（恶意）SQL语句得到一个存在安全漏洞的网站上的数据库，而不是按照设计者意图去执行SQL语句。 比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击。</p>
 <h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><p>SQL注入攻击指的是通过构建特殊的输入作为参数传入Web应用程序，而这些输入大都是SQL语法里的一些组合，通过执行SQL语句进而执行攻击者所要的操作，其主要原因是程序没有细致地过滤用户输入的数据，致使非法数据侵入系统。</p>
 <p>根据相关技术原理，SQL注入可以分为平台层注入和代码层注入。前者由不安全的数据库配置或数据库平台的漏洞所致；后者主要是由于程序员对输入未进行细致地过滤，从而执行了非法的数据查询。基于此，SQL注入的产生原因通常表现在以下几方面：①不当的类型处理；②不安全的数据库配置；③不合理的查询集处理；④不当的错误处理；⑤转义字符处理不合适；⑥多个提交处理不当。</p>
 <h5 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h5><p>当应用程序使用输入内容来构造动态sql语句以访问数据库时，会发生sql注入攻击。如果代码使用存储过程，而这些存储过程作为包含未筛选的用户输入的字符串来传递，也会发生sql注入。sql注入可能导致攻击者使用应用程序登陆在数据库中执行命令。相关的SQL注入可以通过测试工具<code>pangolin</code>进行。如果应用程序使用特权过高的帐户连接到数据库，这种问题会变得很严重。在某些表单中，用户输入的内容直接用来构造动态sql命令，或者作为存储过程的输入参数，这些表单特别容易受到sql注入的攻击。而许多网站程序在编写时，没有对用户输入的合法性进行判断或者程序中本身的变量处理不当，使应用程序存在安全隐患。这样，用户就可以提交一段数据库查询的代码，根据程序返回的结果，获得一些敏感的信息或者控制整个服务器，于是sql注入就发生了。</p>
-<h5 id="防护"><a href="#防护" class="headerlink" title="防护"></a>防护</h5><p>归纳一下，主要有以下几点：</p>
-<ol>
+<h5 id="防护"><a href="#防护" class="headerlink" title="防护"></a>防护</h5><ol>
 <li>永远不要信任用户的输入。对用户的输入进行校验，可以通过正则表达式，或限制长度；对单引号和双”-“进行转换等。</li>
 <li>永远不要使用动态拼装sql，可以使用参数化的sql或者直接使用存储过程进行数据查询存取。</li>
 <li>永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。</li>
@@ -196,7 +195,7 @@
 <li>sql注入的检测方法一般采取辅助软件或网站平台来检测，软件一般采用sql注入检测工具jsky，网站平台就有亿思网站安全平台检测工具。MDCSOFT SCAN等。采用MDCSOFT-IPS可以有效的防御SQL注入，XSS攻击等。</li>
 </ol>
 <h4 id="2-失效的身份认证和会话管理"><a href="#2-失效的身份认证和会话管理" class="headerlink" title="2.失效的身份认证和会话管理"></a>2.失效的身份认证和会话管理</h4><blockquote>
-<p>Application functions related to authentication and session management are often implemented<br>incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit<br>other implementation flaws to assume other users’ identities (temporarily or permanently).</p>
+<p>Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities (temporarily or permanently).</p>
 </blockquote>
 <p>身份认证，最常见的是登录功能，往往是提交用户名和密码，在安全性要求更高的情况下，有防止密码暴力破解的验证码，基于客户端的证书，物理口令卡等等。<br>会话管理，HTTP本身是无状态的，利用会话管理机制来实现连接识别。身份认证的结果往往是获得一个令牌，通常放在cookie中，之后对用户身份的识别根据这个授权的令牌进行识别，而不需要每次都要登陆。</p>
 <h5 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h5><p>用户身份认证和会话管理是一个应用程序中最关键的过程，有缺陷的设计会严重破坏这个过程。在开发Web应用程序时，开发人员往往只关注Web应用程序所需的功能。由于这个原因，开发人员通常会建立自定义的认证和会话管理方案。但要正确实现这些方案却很难，结果这些自定义的方案往往在如下方面存在漏洞：退出、密码管理、超时、记住我、秘密问题、帐户更新等等。因为每一个实现都不同，要找出这些漏洞有时会很困难。</p>
@@ -234,7 +233,7 @@
 <p>对于从 Web 应用程序到状态存储之间的网络连接，应使用 IPSec 或 SSL 确保其安全，以降低被窃听的危险。另外，还需考虑Web 应用程序如何通过状态存储的身份验证。</p>
 <p>在可能的地方使用 Windows验证，以避免通过网络传递纯文本身份验证凭据，并可利用安全的 Windows 帐户策略带来的好处。</p>
 <h4 id="3-敏感数据暴露"><a href="#3-敏感数据暴露" class="headerlink" title="3.敏感数据暴露"></a>3.敏感数据暴露</h4><blockquote>
-<p>Many web applications and APIs do not properly protect sensitive data, such as financial,<br>healthcare, and PII. Attackers may steal or modify such weakly protected data to conduct credit<br>card fraud, identity theft, or other crimes. Sensitive data deserves extra protection, such as<br>encryption at rest or in transit, as well as special precautions when exchanged with the browser.</p>
+<p>Many web applications and APIs do not properly protect sensitive data, such as financial, healthcare, and PII. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data deserves extra protection, such as encryption at rest or in transit, as well as special precautions when exchanged with the browser.</p>
 </blockquote>
 <p><strong>原理</strong></p>
 <p>如果页面继承一般的page，而没有进行Session判断，那么可能会被攻击者获取到页面地址，进而获取到例如用户名等重要数据的。一般避免这种方式是对于一些需要登录才能访问到的页面，一定要进行Session判断，可能很容易给漏掉了。如我在Web框架里面，就是继承一个BasePage，BasePage 统一对页面进行一个登录判断。</p>
@@ -369,6 +368,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/11/19/常见网络安全漏洞（2）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          常见网络安全漏洞（2）
+        
+      </div>
+    </a>
   
   
     <a href="/2017/11/12/浏览器与服务器全双工(full-duplex)通信-WebSocket/" id="article-nav-older" class="article-nav-link-wrap">
@@ -506,11 +514,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机页面</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color5">手机页面</a>
               </li>
              
               <li class="article-tag-list-item">
